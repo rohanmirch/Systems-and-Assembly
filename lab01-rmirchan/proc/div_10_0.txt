@@ -1,0 +1,4 @@
+In our algorithm, we subtract the divisor from the remainder in
+each iteration of the loop. If the divisor is here like in this case,
+than we never change the remainder and it will remain at 10 and the loop will
+continue on forever. This is why t-he program says "Max time reached".

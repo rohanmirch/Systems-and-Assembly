@@ -1,0 +1,8 @@
+0000000A  # 10 (dividend)
+00000000  # 4 (divisor)
+80000000  # constant to mask negatives
+00000000
+00000001  # storing a 1 here for decrementing
+00000000
+00000000  # quotient space
+00000000  # remainder space

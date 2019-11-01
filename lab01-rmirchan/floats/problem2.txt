@@ -1,0 +1,20 @@
+Part A:
+-------
+
+These three results are different because we have rounding errors
+when adding numbers of differing precision.  More specifically, if we have a very large number (say 100000000000), and we add a very precise number (say .000000000001), the program can only allocate so many bits to the floating-point sum and therefore we may lose the decimal precision (round the smaller number). This rounding error will accumulate as we sum up the numbers and we will lose accuracy in our final sum.
+
+The most accurate method is to add the numbers in order of increasing magnitude. By doing this, we sum up the smaller numbers first and can maintain our accuracy by avoiding rounding error. When we reach the larger numbers at the end, the running sum will likely be large already, so we dont need a lot of rounding and can mainin the most accuracy in our answer.
+
+If we were to add up the numbers in decreasing order, we would be adding very small, precise numbers to a very large sum and would have to truncate the decimals a lot, causing more rounding error and a less accurate final sum.
+
+If we add in random order we will see a lot of rounding error as we keep switching from adding large numbers to small numbers to our sum.
+
+The input set that would cause problems would be a dataset with a lot of values that are all varied in magnitude. So each value has no values close in size (and precision) to it. This would cause a lot of rounding errors and give an innacurate answer if you add with increasing order.
+
+Part B:
+-------
+With pairwise summation, the whole point that that we don't have one huge accumulated sum that we have to add small numbers to. We split the lsit of numbers up into smaller lists (I chose size 5) and add them individually, and we keep adding them until we have added all the lists. Since we are adding sums of more similar size to one another, we don't encounter as much rounding error and can get a more accurate final sum.
+
+
+

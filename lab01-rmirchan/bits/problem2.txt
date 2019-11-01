@@ -1,0 +1,11 @@
+Expression:  n = n & (n - 1)
+----------------------------
+
+This expression reduces the number of 1-bits in n by 1.
+
+This works because if n is odd, n-1 is just n without the last bit, so n & n-1 = n-1, which is just decrementing n to an even number.
+
+If n is even, then in n-1 the lowest 1 bit get shifted right and everything to the right is filled with 1 bits. This means that n & n-1 will just return n with out its lowest 1 bit. If n is a power of two, there is only 1 1-bit and n & n-1 returns 0 (since the 1-bits are decremented by 1).
+
+In order to find the number of 1-bits in a number, we could run a while loop with this expression on n, and count how many times the loop runs. Since this expression decrements the number of 1 bits in n each time, the number of loop runs will be the number of 1 bits in n. We would stop the loop when n is 0.
+

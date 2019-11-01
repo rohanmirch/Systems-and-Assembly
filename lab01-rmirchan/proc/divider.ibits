@@ -1,0 +1,10 @@
+0bb6  #   R6<-R6-R6  -- set quotient to be zero
+2207  #   R7<-R0&R0  -- set remainder to be dividend
+0bcf  #   LOOP_TOP (2): R7<-R7-R1  -- remainder = remainder - divisor
+07c5  #   R5<-~R7    -- get the logical not of the remainder in R5
+2353  #   R3<-R5&R2  -- and the inv. rem. with 10000.. (produces 0 if rem neg)
+1786  #   R6<-R6++   -- increment the quotient
+28c2  #   BNZ R3 2   -- if rem >= 0 (R3 != 0), branch TOP_LOOP
+0ba6  #   R6<-R6-R4   -- decrement quotient (when we end the loop)
+03cf  #   R7<-R7+R1  -- remainder += divisor
+3c00  #   done       -- finished, exit leaving result in R6 and R7
